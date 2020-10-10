@@ -371,8 +371,8 @@
   _exports.default = void 0;
 
   var _default = Ember.HTMLBars.template({
-    "id": "iTiVVU58",
-    "block": "{\"symbols\":[],\"statements\":[[10,\"h1\"],[12],[2,\"Monika Swidzinska assignment \"],[13],[2,\"\\n\\n\"],[1,[30,[36,1],[[30,[36,0],null,null]],null]]],\"hasEval\":false,\"upvars\":[\"-outlet\",\"component\"]}",
+    "id": "zngyUCIe",
+    "block": "{\"symbols\":[],\"statements\":[[1,[30,[36,1],[[30,[36,0],null,null]],null]]],\"hasEval\":false,\"upvars\":[\"-outlet\",\"component\"]}",
     "meta": {
       "moduleName": "monika-swidzinska-value-blue/templates/application.hbs"
     }
@@ -389,8 +389,8 @@
   _exports.default = void 0;
 
   var _default = Ember.HTMLBars.template({
-    "id": "ZviQeCiZ",
-    "block": "{\"symbols\":[],\"statements\":[[10,\"div\"],[12],[2,\"Diagram\"],[13],[2,\"\\n\\n\"],[1,[30,[36,1],[[30,[36,0],null,null]],null]],[2,\"\\n\"]],\"hasEval\":false,\"upvars\":[\"-outlet\",\"component\"]}",
+    "id": "rG5mRCHp",
+    "block": "{\"symbols\":[],\"statements\":[[10,\"script\"],[12],[2,\"\\n    function init() {\\n        var $ = go.GraphObject.make;\\n        myDiagram = $(go.Diagram, \\\"myDiagramDiv\\\");\\n        var nodeDataArray = [\\n            { key: \\\"Apple\\\", color: \\\"red\\\" },\\n            { key: \\\"Banana\\\", color: \\\"yellow\\\" },\\n            { key: \\\"Orange\\\", color: \\\"orange\\\" },\\n            { key: \\\"Pear\\\", color: \\\"green\\\" },\\n            { key: \\\"Plum\\\", color: \\\"violet\\\" },\\n        ];\\n        var linkDataArray = [\\n            { from: \\\"Apple\\\", to: \\\"Banana\\\", color: \\\"turquoise\\\" },\\n            { from: \\\"Banana\\\", to: \\\"Orange\\\", color: \\\"turquoise\\\" },\\n            { from: \\\"Orange\\\", to: \\\"Plum\\\", color: \\\"turquoise\\\" },\\n            { from: \\\"Plum\\\", to: \\\"Pear\\\", color: \\\"turquoise\\\" },\\n            { from: \\\"Pear\\\", to: \\\"Apple\\\", color: \\\"turquoise\\\" },\\n        ];\\n        myDiagram.model = new go.GraphLinksModel(nodeDataArray, linkDataArray);\\n        myDiagram.nodeTemplate =\\n            $(go.Node, \\\"Auto\\\",\\n                $(go.Shape, \\\"Ellipse\\\", { fill: \\\"white\\\", portId:\\\"\\\", fromLinkable:true, toLinkable:true },\\n                    new go.Binding(\\\"fill\\\", \\\"color\\\")\\n                ),\\n                $(go.TextBlock, \\\"text\\\", { margin: 15, font: \\\"bold 13pt serif\\\" },\\n                    new go.Binding(\\\"text\\\", \\\"key\\\")\\n                )\\n            );\\n        myDiagram.linkTemplate =\\n            $(go.Link, {relinkableFrom:true, relinkableTo:true },\\n                $(go.Shape, { strokeWidth: 2 },\\n                    new go.Binding(\\\"stroke\\\", \\\"color\\\")\\n                ),\\n                $(go.Shape, { toArrow: \\\"Standard\\\", stroke: null },\\n                    new go.Binding(\\\"fill\\\", \\\"color\\\")\\n                )\\n            );\\n        linkingTool.temporaryLink =\\n        $(go.Link,\\n        $(go.Shape, { strokeWidth: 2 }),\\n        $(go.Shape, { toArrow: \\\"OpenTriangle\\\" }),\\n        )\\n    }\\n\"],[13],[2,\"\\n\\n\"],[1,[30,[36,1],[[30,[36,0],null,null]],null]]],\"hasEval\":false,\"upvars\":[\"-outlet\",\"component\"]}",
     "meta": {
       "moduleName": "monika-swidzinska-value-blue/templates/diagram.hbs"
     }
@@ -473,7 +473,7 @@ catch(err) {
 
 ;
           if (!runningTests) {
-            require("monika-swidzinska-value-blue/app")["default"].create({"name":"monika-swidzinska-value-blue","version":"0.0.0"});
+            require("monika-swidzinska-value-blue/app")["default"].create({"name":"monika-swidzinska-value-blue","version":"0.0.0+d6cbc78e"});
           }
         
 //# sourceMappingURL=monika-swidzinska-value-blue.map

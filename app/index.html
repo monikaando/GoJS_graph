@@ -4,36 +4,6 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>MonikaSwidzinskaValueBlue</title>
-    <script>
-      function init() {
-        var $ = go.GraphObject.make;
-        myDiagram = $(go.Diagram, "myDiagramDiv");
-        var nodeDataArray = [
-          {key: "Apple", color: "red"},
-          {key: "Banana", color: "yellow"},
-          {key: "Orange", color: "orange"},
-          {key: "Pear", color: "green"},
-          {key: "Plum",  color: "violet"},
-        ];
-        var linkDataArray = [
-          {from: "Apple", to: "Banana"},
-          {from: "Banana", to: "Orange"},
-          {from: "Orange", to: "Plum"},
-          {from: "Plum", to: "Pear",},
-          {from: "Pear", to: "Apple",},
-        ];
-        myDiagram.model = new go.GraphLinksModel(nodeDataArray, linkDataArray);
-        myDiagram.nodeTemplate =
-          $(go.Node, "Auto",
-            $(go.Shape, "RoundedRectangle", {fill:"white"},
-            new go.Binding("fill", "color")
-            ),
-            $(go.TextBlock, "text", { margin: 15 },
-              new go.Binding("text", "key")
-            )
-          );
-      }
-    </script>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -45,7 +15,7 @@
     {{content-for "head-footer"}}
   </head>
   <body onload="init()">
-  <div id="myDiagramDiv" style="width:300px; height:300px; border:1px solid black"></div>
+  <div id="myDiagramDiv" style="width:1000px; height:500px; border:1px solid black"></div>
     {{content-for "body"}}
 
     <script src="{{rootURL}}assets/vendor.js"></script>

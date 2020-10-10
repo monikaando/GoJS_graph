@@ -6,6 +6,32 @@ define("monika-swidzinska-value-blue/tests/test-helper", ["monika-swidzinska-val
   (0, _testHelpers.setApplication)(_app.default.create(_environment.default.APP));
   (0, _emberQunit.start)();
 });
+define("monika-swidzinska-value-blue/tests/unit/models/apple-test", ["qunit", "ember-qunit"], function (_qunit, _emberQunit) {
+  "use strict";
+
+  (0, _qunit.module)('Unit | Model | apple', function (hooks) {
+    (0, _emberQunit.setupTest)(hooks); // Replace this with your real tests.
+
+    (0, _qunit.test)('it exists', function (assert) {
+      let store = this.owner.lookup('service:store');
+      let model = store.createRecord('apple', {});
+      assert.ok(model);
+    });
+  });
+});
+define("monika-swidzinska-value-blue/tests/unit/models/nodes-test", ["qunit", "ember-qunit"], function (_qunit, _emberQunit) {
+  "use strict";
+
+  (0, _qunit.module)('Unit | Model | nodes', function (hooks) {
+    (0, _emberQunit.setupTest)(hooks); // Replace this with your real tests.
+
+    (0, _qunit.test)('it exists', function (assert) {
+      let store = this.owner.lookup('service:store');
+      let model = store.createRecord('nodes', {});
+      assert.ok(model);
+    });
+  });
+});
 define('monika-swidzinska-value-blue/config/environment', [], function() {
   var prefix = 'monika-swidzinska-value-blue';
 try {
