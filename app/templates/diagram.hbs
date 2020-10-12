@@ -1,13 +1,16 @@
 <script>
     function init() {
         var $ = go.GraphObject.make;
-        myDiagram = $(go.Diagram, "myDiagramDiv");
+        myDiagram = $(go.Diagram, "myDiagramDiv",
+            {
+                "undoManager.isEnabled": true  // enable undo & redo
+            });
         var nodeDataArray = [
-            { key: "Apple", color: "red" },
-            { key: "Banana", color: "yellow" },
-            { key: "Orange", color: "orange" },
-            { key: "Pear", color: "green" },
-            { key: "Plum", color: "violet" },
+            { key: "Apple", color: "red", loc: "0 0"},
+            { key: "Banana", color: "yellow", loc: "170 0" },
+            { key: "Orange", color: "orange", loc: "350 0" },
+            { key: "Pear", color: "green", loc: "50 200" },
+            { key: "Plum", color: "violet", loc: "400 150" },
         ];
         var linkDataArray = [
             { from: "Apple", to: "Banana", color: "turquoise" },
@@ -19,7 +22,8 @@
         myDiagram.model = new go.GraphLinksModel(nodeDataArray, linkDataArray);
         myDiagram.nodeTemplate =
             $(go.Node, "Auto",
-                $(go.Shape, "Ellipse", { fill: "white", portId:"", fromLinkable:true, toLinkable:true },
+            new go.Binding("position", "loc", go.Point.parse).makeTwoWay(go.Point.stringify),
+                $(go.Shape, "Ellipse", { fill: "white", portId: "", fromLinkable: true, toLinkable: true },
                     new go.Binding("fill", "color")
                 ),
                 $(go.TextBlock, "text", { margin: 15, font: "bold 13pt serif" },
@@ -27,7 +31,16 @@
                 )
             );
         myDiagram.linkTemplate =
-            $(go.Link, {relinkableFrom:true, relinkableTo:true },
+            $(go.Link,
+                {
+                   routing: go.Link.AvoidsNodes,
+                    corner: 10
+                },
+                {
+                    reshapable: true, resegmentable: true,
+                    relinkableFrom: true, relinkableTo: true,
+                    adjusting: go.Link.Stretch
+                },
                 $(go.Shape, { strokeWidth: 2 },
                     new go.Binding("stroke", "color")
                 ),
@@ -36,10 +49,10 @@
                 )
             );
         linkingTool.temporaryLink =
-        $(go.Link,
-        $(go.Shape, { strokeWidth: 2 }),
-        $(go.Shape, { toArrow: "OpenTriangle" }),
-        )
+            $(go.Link,
+                $(go.Shape, { strokeWidth: 2 }),
+                $(go.Shape, { toArrow: "OpenTriangle" }),
+            )
     }
 </script>
 
