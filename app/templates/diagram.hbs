@@ -1,4 +1,5 @@
 <script>
+
     function init() {
         var $ = go.GraphObject.make;
         myDiagram = $(go.Diagram, "myDiagramDiv",
@@ -7,10 +8,10 @@
             });
         var nodeDataArray = [
             { key: "Apple", color: "red", loc: "0 0"},
-            { key: "Banana", color: "yellow", loc: "170 0" },
-            { key: "Orange", color: "orange", loc: "350 0" },
-            { key: "Pear", color: "green", loc: "50 200" },
-            { key: "Plum", color: "violet", loc: "400 150" },
+            { key: "Banana", color: "yellow", loc: "200 0"},
+            { key: "Orange", color: "orange", loc: "450 0"},
+            { key: "Pear", color: "green", loc: "50 200"},
+            { key: "Plum", color: "violet", loc: "400 150"},
         ];
         var linkDataArray = [
             { from: "Apple", to: "Banana", color: "turquoise" },
@@ -20,20 +21,45 @@
             { from: "Pear", to: "Apple", color: "turquoise" },
         ];
         myDiagram.model = new go.GraphLinksModel(nodeDataArray, linkDataArray);
+
+        function changeFontSize(e, obj) {
+            myDiagram.commit(function (d) {
+                var nodedata = obj.part.data.key;
+                var newfontsize = "bold 64pt serif";
+                debugger
+                switch (nodedata) {
+                    case "bold 24px Georgia, Serif": newfontsize = "bold 12px Georgia, Serif"; break;
+                    case "bold 12px Georgia, Serif": newfontsize = "bold 24px Georgia, Serif"; break;
+                }
+
+                d.model.set(nodedata, "font", newfontsize);
+            }, "changed font size");                
+            
+        }
+
         myDiagram.nodeTemplate =
             $(go.Node, "Auto",
-            new go.Binding("position", "loc", go.Point.parse).makeTwoWay(go.Point.stringify),
+                new go.Binding("position", "loc", go.Point.parse).makeTwoWay(go.Point.stringify),
                 $(go.Shape, "Ellipse", { fill: "white", portId: "", fromLinkable: true, toLinkable: true },
                     new go.Binding("fill", "color")
                 ),
-                $(go.TextBlock, "text", { margin: 15, font: "bold 13pt serif" },
-                    new go.Binding("text", "key")
-                )
+                $(go.TextBlock, "text",  {margin: 15, font: "bold 12px Georgia, Serif"},
+                    new go.Binding("text", "key"),
+                    {
+                    contextMenu:
+                        $("ContextMenu",
+                            $("ContextMenuButton",
+                                $(go.TextBlock, "Change the font size"),
+                                { click: changeFontSize })
+                        )
+                }
+                ),
+                
             );
         myDiagram.linkTemplate =
             $(go.Link,
                 {
-                   routing: go.Link.AvoidsNodes,
+                    routing: go.Link.AvoidsNodes,
                     corner: 10
                 },
                 {
@@ -48,7 +74,8 @@
                     new go.Binding("fill", "color")
                 )
             );
-        linkingTool.temporaryLink =
+
+        myDiagram.linkingTool =
             $(go.Link,
                 $(go.Shape, { strokeWidth: 2 }),
                 $(go.Shape, { toArrow: "OpenTriangle" }),
