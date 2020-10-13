@@ -11,13 +11,16 @@
 
     <link integrity="" rel="stylesheet" href="{{rootURL}}assets/vendor.css">
     <link integrity="" rel="stylesheet" href="{{rootURL}}assets/monika-swidzinska-value-blue.css">
-
     {{content-for "head-footer"}}
   </head>
   <body onload="init()">
+  <div class="saved">
+    <img src="assets/images/saved.png" alt="">
+    <p>saved</p>
+  </div>
   <div id="myDiagramDiv" style="width:1000px; height:500px; border:1px solid black"></div>
     {{content-for "body"}}
-
+    
     <script src="{{rootURL}}assets/vendor.js"></script>
     <script src="{{rootURL}}assets/monika-swidzinska-value-blue.js"></script>
 
