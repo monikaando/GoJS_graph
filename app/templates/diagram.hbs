@@ -1,17 +1,18 @@
 <script>
-
+    var fontChanged = false;
     function init() {
+
         var $ = go.GraphObject.make;
         myDiagram = $(go.Diagram, "myDiagramDiv",
             {
                 "undoManager.isEnabled": true  // enable undo & redo
             });
         var nodeDataArray = [
-            { key: "Apple", color: "red", loc: "0 0"},
-            { key: "Banana", color: "yellow", loc: "200 0"},
-            { key: "Orange", color: "orange", loc: "450 0"},
-            { key: "Pear", color: "green", loc: "50 200"},
-            { key: "Plum", color: "violet", loc: "400 150"},
+            { key: "Apple", color: "red", loc: "0 0" },
+            { key: "Banana", color: "yellow", loc: "200 0" },
+            { key: "Orange", color: "orange", loc: "450 0" },
+            { key: "Pear", color: "green", loc: "50 200" },
+            { key: "Plum", color: "violet", loc: "400 150" },
         ];
         var linkDataArray = [
             { from: "Apple", to: "Banana", color: "turquoise" },
@@ -25,25 +26,10 @@
         function changeFontSize(e, obj) {
             myDiagram.commit(function (d) {
                 var nodedata = obj.part.data;
-                var fontsize = "bold 12pt serif"; 
                 var newfontsize = "bold 24pt serif";
-                debugger
-                if(nodedata, "font", fontsize){
-                    d.model.set(nodedata, "font", newfontsize)
-                }
-                else {
-                    d.model.set(nodedata, "font", fontsize)
-                }
-            }, "changed font size");                
-            
-        }
-        function resetFontSize(e, obj) {
-            myDiagram.commit(function (d) {
-                var nodedata = obj.part.data;
-                var fontsize = "bold 12pt serif"; 
-                d.model.set(nodedata, "font", fontsize);
-            }, "reset font size");   
-        }
+                d.model.set(nodedata, "font", newfontsize);
+            }, "changed font size");
+        };
 
         myDiagram.nodeTemplate =
             $(go.Node, "Auto",
@@ -51,19 +37,18 @@
                 $(go.Shape, "Ellipse", { fill: "white", portId: "", fromLinkable: true, toLinkable: true },
                     new go.Binding("fill", "color")
                 ),
-                $(go.TextBlock, "text",  {margin: 15, font: "bold 12px Georgia, Serif"},
+                $(go.TextBlock, "text", { margin: 15, font: "bold 12px Georgia, Serif" },
                     new go.Binding("text", "key"),
-                    new go.Binding("font","font"),
-                    {
-                    contextMenu:
-                        $("ContextMenu",
-                            $("ContextMenuButton",
-                                $(go.TextBlock, "Change the font size"),
-                                { click: changeFontSize })
-                        )
-                }
+                    new go.Binding("font", "font"),
                 ),
-                
+                {
+                contextMenu:
+                    $("ContextMenu",
+                        $("ContextMenuButton",
+                            $(go.TextBlock, "Change the font size"),
+                            { click: changeFontSize }),                       
+                    )                
+                },
             );
         myDiagram.linkTemplate =
             $(go.Link,
