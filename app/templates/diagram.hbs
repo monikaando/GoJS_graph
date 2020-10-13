@@ -31,6 +31,7 @@
         };
         function changeLabelFontSize(e, obj) {
             myDiagram.commit(function (d) {
+                debugger
                 var linkdata = obj.part.data;
                 var newfontsize = "bold 6pt serif";
                 d.model.set(linkdata, "font", newfontsize);
@@ -76,7 +77,8 @@
                 $(go.Panel, "Auto",
                     $(go.Shape, "RoundedRectangle", { fill: "lightblue", stroke: "gray" }),
                     $(go.TextBlock, { margin: 3 },
-                        new go.Binding("text", "text"))
+                        new go.Binding("text", "text"),
+                        new go.Binding("font", "font")),
                 ),
                 {
                     contextMenu:
