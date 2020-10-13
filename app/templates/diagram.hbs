@@ -1,5 +1,4 @@
 <script>
-    var fontChanged = false;
     function init() {
 
         var $ = go.GraphObject.make;
@@ -15,19 +14,26 @@
             { key: "Plum", color: "violet", loc: "400 150" },
         ];
         var linkDataArray = [
-            { from: "Apple", to: "Banana", color: "turquoise" },
-            { from: "Banana", to: "Orange", color: "turquoise" },
-            { from: "Orange", to: "Plum", color: "turquoise" },
-            { from: "Plum", to: "Pear", color: "turquoise" },
-            { from: "Pear", to: "Apple", color: "turquoise" },
+            { from: "Apple", to: "Banana", color: "turquoise", text: "eat" },
+            { from: "Banana", to: "Orange", color: "turquoise", text: "fruits" },
+            { from: "Orange", to: "Plum", color: "turquoise", text: "they" },
+            { from: "Plum", to: "Pear", color: "turquoise", text: "are" },
+            { from: "Pear", to: "Apple", color: "turquoise", text: "healthy" },
         ];
         myDiagram.model = new go.GraphLinksModel(nodeDataArray, linkDataArray);
 
-        function changeFontSize(e, obj) {
+        function changeNodeFontSize(e, obj) {
             myDiagram.commit(function (d) {
                 var nodedata = obj.part.data;
                 var newfontsize = "bold 24pt serif";
                 d.model.set(nodedata, "font", newfontsize);
+            }, "changed font size");
+        };
+        function changeLabelFontSize(e, obj) {
+            myDiagram.commit(function (d) {
+                var linkdata = obj.part.data;
+                var newfontsize = "bold 6pt serif";
+                d.model.set(linkdata, "font", newfontsize);
             }, "changed font size");
         };
 
@@ -42,12 +48,12 @@
                     new go.Binding("font", "font"),
                 ),
                 {
-                contextMenu:
-                    $("ContextMenu",
-                        $("ContextMenuButton",
-                            $(go.TextBlock, "Change the font size"),
-                            { click: changeFontSize }),                       
-                    )                
+                    contextMenu:
+                        $("ContextMenu",
+                            $("ContextMenuButton",
+                                $(go.TextBlock, "Change the font size"),
+                                { click: changeNodeFontSize }),
+                        )
                 },
             );
         myDiagram.linkTemplate =
@@ -66,7 +72,20 @@
                 ),
                 $(go.Shape, { toArrow: "Standard", stroke: null },
                     new go.Binding("fill", "color")
-                )
+                ),
+                $(go.Panel, "Auto",
+                    $(go.Shape, "RoundedRectangle", { fill: "lightblue", stroke: "gray" }),
+                    $(go.TextBlock, { margin: 3 },
+                        new go.Binding("text", "text"))
+                ),
+                {
+                    contextMenu:
+                        $("ContextMenu",
+                            $("ContextMenuButton",
+                                $(go.TextBlock, "Change the font size"),
+                                { click: changeLabelFontSize }),
+                        )
+                },
             );
 
         myDiagram.linkingTool =
