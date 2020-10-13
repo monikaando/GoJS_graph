@@ -24,17 +24,25 @@
 
         function changeFontSize(e, obj) {
             myDiagram.commit(function (d) {
-                var nodedata = obj.part.data.key;
-                var newfontsize = "bold 64pt serif";
+                var nodedata = obj.part.data;
+                var fontsize = "bold 12pt serif"; 
+                var newfontsize = "bold 24pt serif";
                 debugger
-                switch (nodedata) {
-                    case "bold 24px Georgia, Serif": newfontsize = "bold 12px Georgia, Serif"; break;
-                    case "bold 12px Georgia, Serif": newfontsize = "bold 24px Georgia, Serif"; break;
+                if(nodedata, "font", fontsize){
+                    d.model.set(nodedata, "font", newfontsize)
                 }
-
-                d.model.set(nodedata, "font", newfontsize);
+                else {
+                    d.model.set(nodedata, "font", fontsize)
+                }
             }, "changed font size");                
             
+        }
+        function resetFontSize(e, obj) {
+            myDiagram.commit(function (d) {
+                var nodedata = obj.part.data;
+                var fontsize = "bold 12pt serif"; 
+                d.model.set(nodedata, "font", fontsize);
+            }, "reset font size");   
         }
 
         myDiagram.nodeTemplate =
@@ -45,6 +53,7 @@
                 ),
                 $(go.TextBlock, "text",  {margin: 15, font: "bold 12px Georgia, Serif"},
                     new go.Binding("text", "key"),
+                    new go.Binding("font","font"),
                     {
                     contextMenu:
                         $("ContextMenu",
