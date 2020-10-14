@@ -58,6 +58,7 @@
     "edition": "octane"
   },
   "dependencies": {
+    "font-awesome": "^4.7.0",
     "gojs": "^2.1.26"
   }
 }

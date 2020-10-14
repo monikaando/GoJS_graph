@@ -8,16 +8,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     {{content-for "head"}}
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link integrity="" rel="stylesheet" href="{{rootURL}}assets/vendor.css">
     <link integrity="" rel="stylesheet" href="{{rootURL}}assets/monika-swidzinska-value-blue.css">
+
     {{content-for "head-footer"}}
   </head>
   <body onload="init()">
-  <div class="saved">
-    <img src="assets/images/saved.png" alt="">
-    <p>saved</p>
-  </div>
+   
+    <i onclick="myFunction(this)" class="fa fa-check-circle"></i>
+
+    
   <div id="myDiagramDiv" style="width:1000px; height:500px; border:1px solid black"></div>
     {{content-for "body"}}
     
@@ -25,5 +26,11 @@
     <script src="{{rootURL}}assets/monika-swidzinska-value-blue.js"></script>
 
     {{content-for "body-footer"}}
+<script>
+function myFunction(x) {
+  x.classList.toggle("fa-refresh");
+  x.classList.toggle("fa-check-circle");
+}
+</script>
   </body>
 </html>
