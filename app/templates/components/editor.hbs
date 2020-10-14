@@ -1,0 +1,42 @@
+<div class="summernote">summernote 1</div>
+<div class="summernote">summernote 2</div>
+<div class="summernote">summernote 3</div>
+<div class="summernote">summernote 4</div>
+<div class="summernote">summernote 5</div>
+
+<script>
+    $('.summernote').summernote({
+        placeholder: 'Hello Bootstrap 4',
+        tabsize: 2,
+        height: 100
+    });
+    $('.title_notification').summernote({
+        height: 70,
+        callbacks: {
+            onKeydown: function (e) {
+                var t = e.currentTarget.innerText;
+                if (t.trim().length >= 255) {
+                    if (e.keyCode != 8)
+                        e.preventDefault();
+                }
+            },
+            onKeyup: function (e) {
+                var t = e.currentTarget.innerText;
+                $('.title_notification').text(255 - t.trim().length);
+            },
+            onPaste: function (e) {
+                var t = e.currentTarget.innerText;
+                var bufferText = ((e.originalEvent || e).clipboardData || window.clipboardData).getData('Text');
+                e.preventDefault();
+                var all = t + bufferText;
+                if(all.length > 255) {       
+                    document.execCommand('insertText', false, bufferText.trim().substring(0, 255 - t.length));
+                    $('.title_notification').text(all.trim().substring(0, 255));
+                }else {
+                    document.execCommand('insertText', false, bufferText);
+                    $('.title_notification').text(all);
+                }
+            }
+        },
+    })
+</script>
