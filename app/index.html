@@ -3,28 +3,22 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>MonikaSwidzinskaValueBlue</title>
+    <title>Monika Swidzinska-ValueBlue</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     {{content-for "head"}}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link integrity="" rel="stylesheet" href="{{rootURL}}assets/vendor.css">
-    <link integrity="" rel="stylesheet" href="{{rootURL}}assets/monika-swidzinska-value-blue.css">
+    <link integrity="" rel="stylesheet"
+      href="{{rootURL}}assets/monika-swidzinska-value-blue.css">
 
     {{content-for "head-footer"}}
   </head>
-  <body onload="init()">  
-    <div class="save-box">
-      <i onchange="saving(e)" id="icon" class=""></i>
-      <p id="p"></p>
-  </div>  
-  <div id="myDiagramDiv" style="width:1000px; height:500px; border:1px solid black"></div>
+  <body onload="init()">
     {{content-for "body"}}
-    
     <script src="{{rootURL}}assets/vendor.js"></script>
     <script src="{{rootURL}}assets/monika-swidzinska-value-blue.js"></script>
-
     {{content-for "body-footer"}}
   </body>
 </html>

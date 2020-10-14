@@ -371,8 +371,8 @@
   _exports.default = void 0;
 
   var _default = Ember.HTMLBars.template({
-    "id": "zngyUCIe",
-    "block": "{\"symbols\":[],\"statements\":[[1,[30,[36,1],[[30,[36,0],null,null]],null]]],\"hasEval\":false,\"upvars\":[\"-outlet\",\"component\"]}",
+    "id": "DWkRcU8z",
+    "block": "{\"symbols\":[],\"statements\":[[10,\"div\"],[12],[2,\"\\n    \"],[10,\"div\"],[14,0,\"content\"],[12],[2,\"\\n        \"],[8,\"diagram\",[],[[],[]],null],[2,\"\\n        \"],[8,\"instructions\",[],[[],[]],null],[2,\"\\n    \"],[13],[2,\"\\n    \"],[8,\"footer\",[],[[],[]],null],[2,\"\\n\"],[13]],\"hasEval\":false,\"upvars\":[]}",
     "meta": {
       "moduleName": "monika-swidzinska-value-blue/templates/application.hbs"
     }
@@ -380,7 +380,7 @@
 
   _exports.default = _default;
 });
-;define("monika-swidzinska-value-blue/templates/diagram", ["exports"], function (_exports) {
+;define("monika-swidzinska-value-blue/templates/components/diagram", ["exports"], function (_exports) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
@@ -389,10 +389,46 @@
   _exports.default = void 0;
 
   var _default = Ember.HTMLBars.template({
-    "id": "kIWQU5zS",
-    "block": "{\"symbols\":[],\"statements\":[[10,\"script\"],[12],[2,\"\\n\\n    function init() {\\n        var $ = go.GraphObject.make;\\n        myDiagram = $(go.Diagram, \\\"myDiagramDiv\\\",\\n            {\\n                \\\"undoManager.isEnabled\\\": true,\\n                \\\"ModelChanged\\\": function saving(e) {\\n                    if (e.isTransactionFinished) {\\n                        document.getElementById('icon').className = \\\"fa fa-refresh\\\"\\n                        document.getElementById('p').innerText = \\\"Saving\\\";\\n                        setTimeout(function () {\\n                            document.getElementById('icon').className = \\\"fa fa-check-circle\\\";\\n                            document.getElementById('p').innerText = \\\"Saved\\\";\\n                        }, 5000);\\n                    }\\n                }\\n            });\\n\\n        var nodeDataArray = [\\n            { key: \\\"Apple\\\", color: \\\"red\\\", loc: \\\"0 0\\\" },\\n            { key: \\\"Banana\\\", color: \\\"yellow\\\", loc: \\\"200 0\\\" },\\n            { key: \\\"Orange\\\", color: \\\"orange\\\", loc: \\\"450 0\\\" },\\n            { key: \\\"Pear\\\", color: \\\"green\\\", loc: \\\"50 200\\\" },\\n            { key: \\\"Plum\\\", color: \\\"violet\\\", loc: \\\"400 150\\\" },\\n        ];\\n        var linkDataArray = [\\n            { from: \\\"Apple\\\", to: \\\"Banana\\\", color: \\\"turquoise\\\", text: \\\"eat\\\" },\\n            { from: \\\"Banana\\\", to: \\\"Orange\\\", color: \\\"turquoise\\\", text: \\\"fruits\\\" },\\n            { from: \\\"Orange\\\", to: \\\"Plum\\\", color: \\\"turquoise\\\", text: \\\"they\\\" },\\n            { from: \\\"Plum\\\", to: \\\"Pear\\\", color: \\\"turquoise\\\", text: \\\"are\\\" },\\n            { from: \\\"Pear\\\", to: \\\"Apple\\\", color: \\\"turquoise\\\", text: \\\"healthy\\\" },\\n        ];\\n        myDiagram.model = new go.GraphLinksModel(nodeDataArray, linkDataArray);\\n\\n        function changeNodeFontSize(e, obj) {\\n            myDiagram.commit(function (d) {\\n                var nodedata = obj.part.data;\\n                var newfontsize = \\\"bold 24pt serif\\\";\\n                d.model.set(nodedata, \\\"font\\\", newfontsize);\\n            }, \\\"changed font size\\\");\\n        };\\n        function changeLabelFontSize(e, obj) {\\n            myDiagram.commit(function (d) {\\n                debugger\\n                var linkdata = obj.part.data;\\n                var newfontsize = \\\"bold 6pt serif\\\";\\n                d.model.set(linkdata, \\\"font\\\", newfontsize);\\n            }, \\\"changed font size\\\");\\n        };\\n\\n        myDiagram.nodeTemplate =\\n            $(go.Node, \\\"Auto\\\",\\n                new go.Binding(\\\"position\\\", \\\"loc\\\", go.Point.parse).makeTwoWay(go.Point.stringify),\\n                $(go.Shape, \\\"Ellipse\\\", { fill: \\\"white\\\", portId: \\\"\\\", fromLinkable: true, toLinkable: true },\\n                    new go.Binding(\\\"fill\\\", \\\"color\\\")\\n                ),\\n                $(go.TextBlock, \\\"text\\\", { margin: 15, font: \\\"bold 12px Georgia, Serif\\\" },\\n                    new go.Binding(\\\"text\\\", \\\"key\\\"),\\n                    new go.Binding(\\\"font\\\", \\\"font\\\"),\\n                ),\\n                {\\n                    contextMenu:\\n                        $(\\\"ContextMenu\\\",\\n                            $(\\\"ContextMenuButton\\\",\\n                                $(go.TextBlock, \\\"Change the font size\\\"),\\n                                { click: changeNodeFontSize }),\\n                        )\\n                },\\n            );\\n        myDiagram.linkTemplate =\\n            $(go.Link,\\n                {\\n                    routing: go.Link.AvoidsNodes,\\n                    corner: 10,\\n                    reshapable: true,\\n                    resegmentable: true,\\n                    relinkableFrom: true,\\n                    relinkableTo: true,\\n                    adjusting: go.Link.Stretch\\n                },\\n                $(go.Shape, { strokeWidth: 2 },\\n                    new go.Binding(\\\"stroke\\\", \\\"color\\\")\\n                ),\\n                $(go.Shape, { toArrow: \\\"Standard\\\", stroke: null },\\n                    new go.Binding(\\\"fill\\\", \\\"color\\\")\\n                ),\\n                $(go.Panel, \\\"Auto\\\",\\n                    { _isLinkLabel: true, segmentIndex: NaN, segmentFraction: .5 },\\n                    $(go.Shape, \\\"RoundedRectangle\\\", { fill: \\\"lightblue\\\", stroke: \\\"gray\\\" }),\\n                    $(go.TextBlock, \\\"new link\\\", { margin: 3 },\\n                        new go.Binding(\\\"text\\\", \\\"text\\\"),\\n                        new go.Binding(\\\"font\\\", \\\"font\\\")),\\n                    new go.Binding(\\\"segmentFraction\\\").makeTwoWay()\\n                ),\\n                {\\n                    contextMenu:\\n                        $(\\\"ContextMenu\\\",\\n                            $(\\\"ContextMenuButton\\\",\\n                                $(go.TextBlock, \\\"Change the font size\\\"),\\n                                { click: changeLabelFontSize }),\\n                        )\\n                },\\n            );\\n\\n        myDiagram.linkingTool =\\n            $(go.Link,\\n                $(go.Shape, { strokeWidth: 2 }),\\n                $(go.Shape, { toArrow: \\\"OpenTriangle\\\" }),\\n            )\\n    }\\n\\n\"],[13],[2,\"\\n\"],[1,[30,[36,1],[[30,[36,0],null,null]],null]]],\"hasEval\":false,\"upvars\":[\"-outlet\",\"component\"]}",
+    "id": "yWHGQ+sb",
+    "block": "{\"symbols\":[],\"statements\":[[10,\"script\"],[12],[2,\"\\n    function init() {\\n        var $ = go.GraphObject.make;\\n        myDiagram = $(go.Diagram, \\\"myDiagramDiv\\\",\\n            {\\n                \\\"undoManager.isEnabled\\\": true,\\n                \\\"ModelChanged\\\": function (e) {\\n                    if (e.isTransactionFinished) {\\n                        document.getElementById('icon').className = \\\"fa fa-refresh\\\"\\n                        document.getElementById('p').innerText = \\\"Saving\\\";\\n                        setTimeout(function () {\\n                            document.getElementById('icon').className = \\\"fa fa-check-circle\\\";\\n                            document.getElementById('p').innerText = \\\"Saved\\\";\\n                        }, 5000);\\n                    }\\n                }\\n            });\\n\\n        var nodeDataArray = [\\n            { key: \\\"Apple\\\", color: \\\"red\\\", loc: \\\"0 0\\\" },\\n            { key: \\\"Banana\\\", color: \\\"yellow\\\", loc: \\\"200 0\\\" },\\n            { key: \\\"Orange\\\", color: \\\"orange\\\", loc: \\\"450 0\\\" },\\n            { key: \\\"Pear\\\", color: \\\"green\\\", loc: \\\"50 200\\\" },\\n            { key: \\\"Plum\\\", color: \\\"violet\\\", loc: \\\"400 150\\\" },\\n        ];\\n        var linkDataArray = [\\n            { from: \\\"Apple\\\", to: \\\"Banana\\\", color: \\\"turquoise\\\", text: \\\"eat\\\" },\\n            { from: \\\"Banana\\\", to: \\\"Orange\\\", color: \\\"turquoise\\\", text: \\\"fruits\\\" },\\n            { from: \\\"Orange\\\", to: \\\"Plum\\\", color: \\\"turquoise\\\", text: \\\"they\\\" },\\n            { from: \\\"Plum\\\", to: \\\"Pear\\\", color: \\\"turquoise\\\", text: \\\"are\\\" },\\n            { from: \\\"Pear\\\", to: \\\"Apple\\\", color: \\\"turquoise\\\", text: \\\"healthy\\\" },\\n        ];\\n        myDiagram.model = new go.GraphLinksModel(nodeDataArray, linkDataArray);\\n\\n        function changeNodeFontSize(e, obj) {\\n            myDiagram.commit(function (d) {\\n                var nodedata = obj.part.data;\\n                var newfontsize = \\\"bold 24pt serif\\\";\\n                d.model.set(nodedata, \\\"font\\\", newfontsize);\\n            }, \\\"changed font size\\\");\\n        };\\n        function changeLabelFontSize(e, obj) {\\n            myDiagram.commit(function (d) {\\n                debugger\\n                var linkdata = obj.part.data;\\n                var newfontsize = \\\"bold 6pt serif\\\";\\n                d.model.set(linkdata, \\\"font\\\", newfontsize);\\n            }, \\\"changed font size\\\");\\n        };\\n\\n        myDiagram.nodeTemplate =\\n            $(go.Node, \\\"Auto\\\",\\n                new go.Binding(\\\"position\\\", \\\"loc\\\", go.Point.parse).makeTwoWay(go.Point.stringify),\\n                $(go.Shape, \\\"Ellipse\\\", { fill: \\\"white\\\", portId: \\\"\\\", fromLinkable: true, toLinkable: true },\\n                    new go.Binding(\\\"fill\\\", \\\"color\\\")\\n                ),\\n                $(go.TextBlock, \\\"text\\\", { margin: 15, font: \\\"bold 12px Georgia, Serif\\\" },\\n                    new go.Binding(\\\"text\\\", \\\"key\\\"),\\n                    new go.Binding(\\\"font\\\", \\\"font\\\"),\\n                ),\\n                {\\n                    contextMenu:\\n                        $(\\\"ContextMenu\\\",\\n                            $(\\\"ContextMenuButton\\\",\\n                                $(go.TextBlock, \\\"Change the font size\\\"),\\n                                { click: changeNodeFontSize }),\\n                        )\\n                },\\n            );\\n        myDiagram.linkTemplate =\\n            $(go.Link,\\n                {\\n                    routing: go.Link.AvoidsNodes,\\n                    corner: 10,\\n                    reshapable: true,\\n                    resegmentable: true,\\n                    relinkableFrom: true,\\n                    relinkableTo: true,\\n                    adjusting: go.Link.Stretch\\n                },\\n                $(go.Shape, { strokeWidth: 2 },\\n                    new go.Binding(\\\"stroke\\\", \\\"color\\\")\\n                ),\\n                $(go.Shape, { toArrow: \\\"Standard\\\", stroke: null },\\n                    new go.Binding(\\\"fill\\\", \\\"color\\\")\\n                ),\\n                $(go.Panel, \\\"Auto\\\",\\n                    { _isLinkLabel: true, segmentIndex: NaN, segmentFraction: .5 },\\n                    $(go.Shape, \\\"RoundedRectangle\\\", { fill: \\\"lightblue\\\", stroke: \\\"gray\\\" }),\\n                    $(go.TextBlock, \\\"new link\\\", { margin: 3 },\\n                        new go.Binding(\\\"text\\\", \\\"text\\\"),\\n                        new go.Binding(\\\"font\\\", \\\"font\\\")),\\n                    new go.Binding(\\\"segmentFraction\\\").makeTwoWay()\\n                ),\\n                {\\n                    contextMenu:\\n                        $(\\\"ContextMenu\\\",\\n                            $(\\\"ContextMenuButton\\\",\\n                                $(go.TextBlock, \\\"Change the font size\\\"),\\n                                { click: changeLabelFontSize }),\\n                        )\\n                },\\n            );\\n\\n        myDiagram.linkingTool =\\n            $(go.Link,\\n                $(go.Shape, { strokeWidth: 2 }),\\n                $(go.Shape, { toArrow: \\\"OpenTriangle\\\" }),\\n            )\\n    }\\n\"],[13],[2,\"\\n\"],[10,\"div\"],[12],[2,\"\\n    \"],[10,\"div\"],[14,0,\"save-box\"],[12],[2,\"\\n        \"],[10,\"i\"],[14,\"onchange\",\"saving(e)\"],[14,1,\"icon\"],[14,0,\"\"],[12],[13],[2,\"\\n        \"],[10,\"p\"],[14,1,\"p\"],[12],[13],[2,\"\\n    \"],[13],[2,\"\\n    \"],[10,\"div\"],[14,1,\"myDiagramDiv\"],[14,5,\"width:800px; height:560px\"],[12],[2,\"\\n    \"],[13],[2,\"\\n\"],[13],[2,\"\\n\"],[1,[30,[36,1],[[30,[36,0],null,null]],null]]],\"hasEval\":false,\"upvars\":[\"-outlet\",\"component\"]}",
     "meta": {
-      "moduleName": "monika-swidzinska-value-blue/templates/diagram.hbs"
+      "moduleName": "monika-swidzinska-value-blue/templates/components/diagram.hbs"
+    }
+  });
+
+  _exports.default = _default;
+});
+;define("monika-swidzinska-value-blue/templates/components/footer", ["exports"], function (_exports) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  _exports.default = void 0;
+
+  var _default = Ember.HTMLBars.template({
+    "id": "77uVGulp",
+    "block": "{\"symbols\":[],\"statements\":[[10,\"div\"],[14,0,\"footer\"],[12],[2,\"\\n    \"],[10,\"h5\"],[12],[2,\"made by \"],[10,\"a\"],[14,6,\"https://monikaswidzinska.netlify.app/\"],[12],[2,\"Monika Swidzinska\"],[13],[13],[2,\"\\n\"],[13]],\"hasEval\":false,\"upvars\":[]}",
+    "meta": {
+      "moduleName": "monika-swidzinska-value-blue/templates/components/footer.hbs"
+    }
+  });
+
+  _exports.default = _default;
+});
+;define("monika-swidzinska-value-blue/templates/components/instructions", ["exports"], function (_exports) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  _exports.default = void 0;
+
+  var _default = Ember.HTMLBars.template({
+    "id": "ZrvJFDdw",
+    "block": "{\"symbols\":[],\"statements\":[[10,\"div\"],[14,0,\"instructions\"],[12],[2,\"\\n    \"],[10,\"h4\"],[12],[2,\"Options:\"],[13],[2,\"\\n    \"],[10,\"ol\"],[12],[2,\"\\n        \"],[10,\"li\"],[12],[2,\"Move blocks\"],[13],[2,\"\\n        \"],[10,\"li\"],[12],[2,\"Relink links\"],[13],[2,\"\\n        \"],[10,\"li\"],[12],[2,\"Shift links\"],[13],[2,\"\\n        \"],[10,\"li\"],[12],[2,\"Create new links\"],[13],[2,\"\\n        \"],[10,\"li\"],[12],[2,\"Open the context menu (right click) and change the font size for nodes and links\"],[13],[2,\"\\n        \"],[10,\"li\"],[12],[2,\"You can click ctrl+z / ctrl+y (undo / redo)\"],[13],[2,\"\\n        \"],[10,\"li\"],[12],[2,\"Every time you change something you see that icons above the diagram are changing (Saving / Saved)\"],[13],[2,\"\\n    \"],[13],[2,\"\\n\"],[13]],\"hasEval\":false,\"upvars\":[]}",
+    "meta": {
+      "moduleName": "monika-swidzinska-value-blue/templates/components/instructions.hbs"
     }
   });
 
@@ -473,7 +509,7 @@ catch(err) {
 
 ;
           if (!runningTests) {
-            require("monika-swidzinska-value-blue/app")["default"].create({"name":"monika-swidzinska-value-blue","version":"0.0.0+04764b1c"});
+            require("monika-swidzinska-value-blue/app")["default"].create({"name":"monika-swidzinska-value-blue","version":"0.0.0+307cc8a8"});
           }
         
 //# sourceMappingURL=monika-swidzinska-value-blue.map

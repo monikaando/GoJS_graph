@@ -1,11 +1,10 @@
 <script>
-
     function init() {
         var $ = go.GraphObject.make;
         myDiagram = $(go.Diagram, "myDiagramDiv",
             {
                 "undoManager.isEnabled": true,
-                "ModelChanged": function saving(e) {
+                "ModelChanged": function (e) {
                     if (e.isTransactionFinished) {
                         document.getElementById('icon').className = "fa fa-refresh"
                         document.getElementById('p').innerText = "Saving";
@@ -109,6 +108,13 @@
                 $(go.Shape, { toArrow: "OpenTriangle" }),
             )
     }
-
 </script>
+<div>
+    <div class="save-box">
+        <i onchange="saving(e)" id="icon" class=""></i>
+        <p id="p"></p>
+    </div>
+    <div id="myDiagramDiv" style="width:800px; height:560px">
+    </div>
+</div>
 {{outlet}}

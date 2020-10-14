@@ -1,7 +1,14 @@
-html {
+body {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+a {
+  color: black;
+}
+#myDiagramDiv {
+  margin-left: 3%; 
+  border: 2px dotted rgb(177, 177, 177);
 }
 .save-box {
   display: flex;
@@ -10,5 +17,19 @@ html {
   margin: 1.5% 0 2.5% 0;
 }
 .fa {
-  font-size: 50px;
+  font-size: 45px;
+}
+.content {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.instructions {
+  padding: 0 5% 0 5%;
+  line-height: 1.7em;
+}
+.footer {
+  text-align: end;
+  margin-right: 5%;
 }
