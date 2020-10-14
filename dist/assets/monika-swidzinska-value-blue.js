@@ -407,8 +407,8 @@
   _exports.default = void 0;
 
   var _default = Ember.HTMLBars.template({
-    "id": "77uVGulp",
-    "block": "{\"symbols\":[],\"statements\":[[10,\"div\"],[14,0,\"footer\"],[12],[2,\"\\n    \"],[10,\"h5\"],[12],[2,\"made by \"],[10,\"a\"],[14,6,\"https://monikaswidzinska.netlify.app/\"],[12],[2,\"Monika Swidzinska\"],[13],[13],[2,\"\\n\"],[13]],\"hasEval\":false,\"upvars\":[]}",
+    "id": "PgFJy3Y5",
+    "block": "{\"symbols\":[],\"statements\":[[10,\"div\"],[14,0,\"footer\"],[12],[2,\"\\n    \"],[10,\"h5\"],[12],[2,\"Created by \"],[10,\"a\"],[14,6,\"https://monikaswidzinska.netlify.app/\"],[12],[2,\"Monika Swidzinska\"],[13],[13],[2,\"\\n\"],[13]],\"hasEval\":false,\"upvars\":[]}",
     "meta": {
       "moduleName": "monika-swidzinska-value-blue/templates/components/footer.hbs"
     }
@@ -509,7 +509,7 @@ catch(err) {
 
 ;
           if (!runningTests) {
-            require("monika-swidzinska-value-blue/app")["default"].create({"name":"monika-swidzinska-value-blue","version":"0.0.0+307cc8a8"});
+            require("monika-swidzinska-value-blue/app")["default"].create({"name":"monika-swidzinska-value-blue","version":"0.0.0+18375bb9"});
           }
         
 //# sourceMappingURL=monika-swidzinska-value-blue.map

@@ -30,6 +30,6 @@ a {
   line-height: 1.7em;
 }
 .footer {
-  text-align: end;
-  margin-right: 5%;
+  text-align: start;
+  margin-left: 1.7%;
 }
