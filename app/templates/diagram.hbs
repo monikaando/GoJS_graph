@@ -1,16 +1,22 @@
 <script>
+
     function init() {
         var $ = go.GraphObject.make;
         myDiagram = $(go.Diagram, "myDiagramDiv",
             {
                 "undoManager.isEnabled": true,
-                "ModelChanged": function (e) {
+                "ModelChanged": function saving(e) {
                     if (e.isTransactionFinished) {
-
-
+                        document.getElementById('icon').className = "fa fa-refresh"
+                        document.getElementById('p').innerText = "Saving";
+                        setTimeout(function () {
+                            document.getElementById('icon').className = "fa fa-check-circle";
+                            document.getElementById('p').innerText = "Saved";
+                        }, 5000);
                     }
                 }
             });
+
         var nodeDataArray = [
             { key: "Apple", color: "red", loc: "0 0" },
             { key: "Banana", color: "yellow", loc: "200 0" },
@@ -67,9 +73,9 @@
                 {
                     routing: go.Link.AvoidsNodes,
                     corner: 10,
-                    reshapable: true, 
+                    reshapable: true,
                     resegmentable: true,
-                    relinkableFrom: true, 
+                    relinkableFrom: true,
                     relinkableTo: true,
                     adjusting: go.Link.Stretch
                 },
@@ -80,12 +86,12 @@
                     new go.Binding("fill", "color")
                 ),
                 $(go.Panel, "Auto",
-                { _isLinkLabel: true, segmentIndex: NaN, segmentFraction: .5 },
+                    { _isLinkLabel: true, segmentIndex: NaN, segmentFraction: .5 },
                     $(go.Shape, "RoundedRectangle", { fill: "lightblue", stroke: "gray" }),
                     $(go.TextBlock, "new link", { margin: 3 },
                         new go.Binding("text", "text"),
                         new go.Binding("font", "font")),
-                        new go.Binding("segmentFraction").makeTwoWay()
+                    new go.Binding("segmentFraction").makeTwoWay()
                 ),
                 {
                     contextMenu:
@@ -103,6 +109,6 @@
                 $(go.Shape, { toArrow: "OpenTriangle" }),
             )
     }
-    
+
 </script>
 {{outlet}}

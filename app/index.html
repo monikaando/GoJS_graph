@@ -14,11 +14,11 @@
 
     {{content-for "head-footer"}}
   </head>
-  <body onload="init()">
-   
-    <i onclick="myFunction(this)" class="fa fa-check-circle"></i>
-
-    
+  <body onload="init()">  
+    <div class="save-box">
+      <i onchange="saving(e)" id="icon" class=""></i>
+      <p id="p"></p>
+  </div>  
   <div id="myDiagramDiv" style="width:1000px; height:500px; border:1px solid black"></div>
     {{content-for "body"}}
     
@@ -26,11 +26,5 @@
     <script src="{{rootURL}}assets/monika-swidzinska-value-blue.js"></script>
 
     {{content-for "body-footer"}}
-<script>
-function myFunction(x) {
-  x.classList.toggle("fa-refresh");
-  x.classList.toggle("fa-check-circle");
-}
-</script>
   </body>
 </html>
