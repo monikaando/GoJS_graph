@@ -43,3 +43,7 @@ Screenshots and video:
 <div>
 <img src="https://res.cloudinary.com/mokaweb/image/upload/v1602766501/ValueBlue/project.png" />
 </div>
+
+<div>
+<a href="https://youtu.be/GI_m390kFXA">Link to the video</a>
+</div>
