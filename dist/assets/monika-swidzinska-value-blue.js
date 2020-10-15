@@ -443,8 +443,8 @@
   _exports.default = void 0;
 
   var _default = Ember.HTMLBars.template({
-    "id": "BWQxcCoL",
-    "block": "{\"symbols\":[],\"statements\":[[10,\"div\"],[14,0,\"summernote\"],[12],[2,\"summernote 1\"],[13],[2,\"\\n\"],[10,\"div\"],[14,0,\"summernote\"],[12],[2,\"summernote 2\"],[13],[2,\"\\n\"],[10,\"div\"],[14,0,\"summernote\"],[12],[2,\"summernote 3\"],[13],[2,\"\\n\"],[10,\"div\"],[14,0,\"summernote\"],[12],[2,\"summernote 4\"],[13],[2,\"\\n\"],[10,\"div\"],[14,0,\"summernote\"],[12],[2,\"summernote 5\"],[13],[2,\"\\n\\n\"],[10,\"script\"],[12],[2,\"\\n    $('.summernote').summernote({\\n        placeholder: 'Text',\\n        tabsize: 2,\\n        height: 100\\n    });\\n    \\n\"],[13]],\"hasEval\":false,\"upvars\":[]}",
+    "id": "uKNLjK1b",
+    "block": "{\"symbols\":[],\"statements\":[[10,\"div\"],[14,0,\"summernote\"],[12],[13],[2,\"\\n\\n\"],[10,\"script\"],[12],[2,\"\\n    $('.summernote').summernote('editor.insertText', 'hello world')({\\n        placeholder: 'type some text',\\n        tabsize: 2,\\n        height: 100\\n    });\\n\"],[13]],\"hasEval\":false,\"upvars\":[]}",
     "meta": {
       "moduleName": "monika-swidzinska-value-blue/templates/components/summernote.hbs"
     }

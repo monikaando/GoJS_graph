@@ -1,14 +1,9 @@
-<div class="summernote">summernote 1</div>
-<div class="summernote">summernote 2</div>
-<div class="summernote">summernote 3</div>
-<div class="summernote">summernote 4</div>
-<div class="summernote">summernote 5</div>
+<div class="summernote"></div>
 
 <script>
-    $('.summernote').summernote({
-        placeholder: 'Text',
+    $('.summernote').summernote('editor.insertText', 'hello world')({
+        placeholder: 'type some text',
         tabsize: 2,
         height: 100
     });
-    
 </script>

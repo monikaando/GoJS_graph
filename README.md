@@ -1,5 +1,5 @@
 # monika-swidzinska-value-blue
-EmberJs and GoJs was totally new for me. I had one week to learn it and build the assignment. To broaden my knowledge I was using GoJs and EmberJs documentations, GoJs forum and youtube tutorials.
+EmberJs, GoJs, Summernote, jQuery was totally new for me. I had one week to learn it and build the assignment. To broaden my knowledge I was using GoJs and EmberJs documentations, GoJs forum and youtube tutorials.
 
 I added extra elements in GoJS: 
 - functionality for links which couses avoiding nodes (otherwise links are going through a node,
@@ -22,7 +22,7 @@ I added extra elements in GoJS:
 - I build undo and redo functionality (ctrl+z and ctrl+y) to be able to go back and forward if we will change the diagram. 
 - I added the context menu (showig by right click on modules or links). I can change the font size of module (2x bigger) and link(2xsmaller). I created two functions (one for nodes, one for links wich are seting new font size after a click in a button in the context menu. To undo this I can use functionality from point 11.
 I stuck here for the first time becasue I forgot to bind the font ( new go.Binding("font", "font") ). But after a while of struggling and googling around I finally discovered my mistake.
-- I created icons Saved and Saving above the diagram. When I make a change, icon Saved is changing for Saving for 5 seconds and after this time the icon Saved is visible again. I built this by using a dom manipulation and "isTransactionFinished" GoJS functionality. The Saving icon is on the beginning as well becasue the diagram is loading for the first time and it is considered as a change. 
+- I created icons Saved and Saving (font awesome classes) above the diagram. When I make a change, icon Saved is changing for Saving for 5 seconds and after this time the icon Saved is visible again. I built this by using a dom manipulation and "isTransactionFinished" GoJS functionality. The Saving icon is on the beginning as well becasue the diagram is loading for the first time and it is considered as a change. 
 - In the end I added diagram's instruction to make the application more understandable for every user.
 
 
@@ -32,6 +32,9 @@ I stuck here for the first time becasue I forgot to bind the font ( new go.Bindi
 - I added components (diagram, summernote, footer, instructins) and styled them in app.css
 - I put all components together in application.hbs
 - I installed summernote (jQuery and bootstrap needed for summer note as well) by adding code in index.html (links and scripts)
+- I added a text to the editor
 
+This is all what I did during a week between my regular work. To do everything I need to spend a bit more time on learning EmberJs. I don't like the <script></script> solution poposed by GoJs documentation. I know I can do it better in EmberJs. I also need to learn jQuery to be able to manipulate data in Summernote. I must admit that first time in my life I am sending project I didn't finished, but I just not able to learn everything (EmberJs, GoJs, Summernote and jQuery) in one week and build a project.  
 
-- I created 5 summernotes wysiwyg editors
+Screenshots and video:
+<a href="https://res.cloudinary.com/mokaweb/image/upload/v1602766501/ValueBlue/project.png" alt="project">
