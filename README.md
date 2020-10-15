@@ -39,7 +39,7 @@ I added extra elements in GoJS:
 
 This is all what I did during a week between my regular work. To do everything I need to spend a bit more time on learning EmberJs. I don't like the <script></script> solution poposed by GoJs documentation. I know I can do it better in EmberJs. I also need to learn jQuery to be able to manipulate data in Summernote. I must admit that first time in my life I am sending project I didn't finished, but I just not able to learn everything (EmberJs, GoJs, Summernote and jQuery) in one week and build a project.
 
-Screenshots and video:
+## Screenshots and video:
 <div>
 <a href="https://youtu.be/GI_m390kFXA" target="_blank" >Link to the video</a>
 </div>
