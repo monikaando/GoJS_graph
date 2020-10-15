@@ -45,5 +45,5 @@ Screenshots and video:
 </div>
 
 <div>
-<a href="https://youtu.be/GI_m390kFXA">Link to the video</a>
+<a href="https://youtu.be/GI_m390kFXA" target="_blank" >Link to the video</a>
 </div>
